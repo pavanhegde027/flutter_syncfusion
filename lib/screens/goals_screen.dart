@@ -9,6 +9,23 @@ class GoalsScreen extends StatefulWidget {
 }
 
 class _GoalsScreenState extends State<GoalsScreen> {
+
+  //Function to create a table
+  TableRow buildRow(List<String> cells, {bool isHeader = false}) => TableRow(
+      children: cells.map((e)  {
+
+        final style = GoogleFonts.poppins(textStyle:  TextStyle(
+            color: isHeader ? Colors.blue : Colors.black,
+
+            fontSize: 12,
+            fontWeight: FontWeight.w500));
+
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Align(alignment: Alignment.centerLeft,child: Text(e,style: style,)),
+        ); }).toList()
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -215,19 +232,5 @@ class _GoalsScreenState extends State<GoalsScreen> {
     );
   }
 
-  //Function to create a table
-  TableRow buildRow(List<String> cells, {bool isHeader = false}) => TableRow(
-    children: cells.map((e)  {
 
-      final style = GoogleFonts.poppins(textStyle:  TextStyle(
-          color: isHeader ? Colors.blue : Colors.black,
-
-          fontSize: 12,
-          fontWeight: FontWeight.w500));
-
-      return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Align(alignment: Alignment.centerLeft,child: Text(e,style: style,)),
-    ); }).toList()
-  );
 }

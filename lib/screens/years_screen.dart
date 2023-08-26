@@ -25,6 +25,23 @@ class _YearsScreenState extends State<YearsScreen> {
   late TrackballBehavior trackBehavior;
   late TrackballBehavior trackBall;
 
+
+  //Function to create a table
+  TableRow buildRow(List<String> rowsColumns, {bool isHeader = false}) => TableRow(
+      children: rowsColumns.map((e)  {
+
+        final style = GoogleFonts.poppins(textStyle:  TextStyle(
+            color: isHeader ? Colors.blue : Colors.black,
+
+            fontSize: 12,
+            fontWeight: FontWeight.w500));
+
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Align(alignment: Alignment.centerLeft,child: Text(e,style: style,)),
+        ); }).toList()
+  );
+
   @override
   void initState() {
     _chartData = getChartData();
@@ -962,19 +979,5 @@ class _YearsScreenState extends State<YearsScreen> {
     );
   }
 
-  //Function to create a table
-  TableRow buildRow(List<String> rowsColumns, {bool isHeader = false}) => TableRow(
-      children: rowsColumns.map((e)  {
 
-        final style = GoogleFonts.poppins(textStyle:  TextStyle(
-            color: isHeader ? Colors.blue : Colors.black,
-
-            fontSize: 12,
-            fontWeight: FontWeight.w500));
-
-        return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Align(alignment: Alignment.centerLeft,child: Text(e,style: style,)),
-        ); }).toList()
-  );
 }

@@ -13,6 +13,22 @@ class MonthsScreen extends StatefulWidget {
 
 class _MonthsScreenState extends State<MonthsScreen> {
 
+  //Function to create a table
+  TableRow buildRow(List<String> rowsColumns, {bool isHeader = false}) => TableRow(
+      children: rowsColumns.map((e)  {
+
+        final style = GoogleFonts.poppins(textStyle:  TextStyle(
+            color: isHeader ? Colors.blue : Colors.black,
+
+            fontSize: 12,
+            fontWeight: FontWeight.w500));
+
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Align(alignment: Alignment.centerLeft,child: Text(e,style: style,)),
+        ); }).toList()
+  );
+
   late List<Investment> _chartData;
   late TooltipBehavior _tooltipBehavior;
   late TrackballBehavior trackballBehavior;
@@ -564,19 +580,6 @@ class _MonthsScreenState extends State<MonthsScreen> {
     );
   }
 
-  TableRow buildRow(List<String> rowsColumns, {bool isHeader = false}) => TableRow(
-      children: rowsColumns.map((e)  {
 
-        final style = GoogleFonts.poppins(textStyle:  TextStyle(
-            color: isHeader ? Colors.blue : Colors.black,
-
-            fontSize: 12,
-            fontWeight: FontWeight.w500));
-
-        return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Align(alignment: Alignment.centerLeft,child: Text(e,style: style,)),
-        ); }).toList()
-  );
 
 }
