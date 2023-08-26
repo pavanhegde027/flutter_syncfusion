@@ -30,12 +30,14 @@ class _MonthsScreenState extends State<MonthsScreen> {
   );
 
   late List<Investment> _chartData;
-  late TooltipBehavior _tooltipBehavior;
+   TooltipBehavior? _tooltipBehavior;
   late TrackballBehavior trackballBehavior;
   late SelectionBehavior selectionBehavior;
   late List<Assets> assetChartData;
 
+  var variableNew = 10;
 
+  var toolTip = TooltipBehavior(enable: true);
   //Hardcoded data for the StackedAreaSeries graph
   List<Assets> getAssetChartData () {
 
